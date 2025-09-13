@@ -106,7 +106,7 @@ document.querySelector('.home-img img').addEventListener('click', () => {
 });
 
 
-
+// experience
 const modal = document.getElementById("imgModal");
 const closeBtn = document.getElementById("closeModal");
 const carouselImage = document.getElementById("carouselImage");
@@ -116,31 +116,22 @@ const nextBtn = document.querySelector(".next");
 let currentIndex = 0;
 let images = [];
 
-// Example: add image sets per timeline item
-const imageSets = {
-    telkom: [
-        "assets/certificate/telkom/telkom1.jpg",
-        "assets/certificate/telkom/telkom2.jpg",
-        "assets/certificate/telkom/telkom3.jpg",
-        "assets/certificate/telkom/telkom4.jpg",
-        "assets/certificate/telkom/telkom5.jpg"
-    ],
-    bangkit: [
-        "assets/certificate/bangkit/bangkit1.jpg",
-        "assets/certificate/bangkit/bangkit2.jpg"
-    ]
-};
+document.addEventListener("click", (e) => {
+    const item = e.target.closest(".timeline-content");
+    if (item) {
+        try {
+            images = JSON.parse(item.getAttribute("data-images")) || [];
+        } catch {
+            images = [];
+        }
+        console.log(images)
 
-document.querySelectorAll('.timeline-content').forEach(item => {
-    item.addEventListener('click', () => {
-        const key = item.getAttribute('data-images'); // e.g. "telkom"
-        images = imageSets[key] || [];
         if (images.length > 0) {
             currentIndex = 0;
             carouselImage.src = images[currentIndex];
             modal.style.display = "block";
         }
-    });
+    }
 });
 
 prevBtn.onclick = () => {
