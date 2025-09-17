@@ -1,6 +1,6 @@
 import client from "../sanityClient.js";
 
-export async function loadExperiences() {
+export async function renderExperiences() {
   const data = await client.fetch(`
     *[_type == "experience"] | order(startDate desc){
       company,
@@ -15,6 +15,11 @@ export async function loadExperiences() {
   const timeline = document.querySelector(".timeline-items");
 
   data.forEach(exp => {
+    const start = new Date(exp.startDate).toLocaleString("en-US", { month: "short", year: "numeric" });
+    const end = exp.endDate 
+      ? new Date(exp.endDate).toLocaleString("en-US", { month: "short", year: "numeric" })
+      : "Present";
+
     const item = document.createElement("div");
     item.classList.add("timeline-item");
 
@@ -23,7 +28,7 @@ export async function loadExperiences() {
     item.innerHTML = `
       <div class="timeline-dot"></div>
       <div class="timeline-date">
-        ${exp.startDate} – ${exp.endDate || "Present"}
+        ${start} - ${end}
       </div>
       <div class="timeline-content" data-images='${JSON.stringify(images)}'>
         <h3>${exp.company}</h3>

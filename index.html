@@ -21,10 +21,9 @@
 
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
-            <a href="#experience">Experience</a>
+            <a href="#experiences">Experience</a>
             <a href="#certifications">certifications</a>
             <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
         </nav>
     </header>
 
@@ -42,8 +41,8 @@
             </div>
 
             <div class="btn-group">
-                <a href="#" class="btn">Hire</a>
-                <a href="#contact" class="btn">Contact</a>
+                <a href="mailto:ihsanghozizulfikar@gmail.com?subject=Hire%20Inquiry" class="btn">Hire</a>
+                <a id="resume-btn" class="btn" target="_blank">Resume</a>
             </div>
         </div>
 
@@ -52,85 +51,52 @@
         </div>
     </section>
 
-    <section class="experience" id="experience">
-        <h2 class="heading">Experience</h2>
+    <section class="education" id="education">
+        <h2 class="heading">Education</h2>
+        <div class="education-items"></div>
+    </section>
+
+    <section class="experience" id="experiences">
+        <h2 class="heading">Experiences</h2>
         <div class="timeline-items"></div>
     </section>
 
-    <section class="education" id=" education">
-        <h2 class="heading">Education</h2>
-        <div>
-            <div class="education-main">
-                <div class="education-title">Bachelor Degree, Universitas Pendidikan Indonesia</div>
-                <div class="education-date">Sep 2021 - Aug 2025</div>
-            </div>
-            <div class="education-score">GPA: 3.94/4.00</div>
-            <p>Relevant Coursework: Software Engineering, Object-Oriented Programming, Database Systems, Algorithms and Programming, Software Quality Assurance.</p>
-        </div>
-    </section>
-
     <section class="certifications" id="certifications">
+        <h2 class="heading">Certifications</h2>
+        <div class="certification-items"></div>
     </section>
 
     <section class="projects" id="projects">
         <div class="projects-box">
             <h2 class="heading">Projects</h2>
             
-            <!-- Category Filter -->
             <div class="project-filters">
                 <button class="filter-btn active" data-category="all">All</button>
-                <!-- Buttons will be filled dynamically from Sanity -->
             </div>
 
             <div class="wrapper"></div>
         </div>
     </section>
 
-    <!-- <section class="contact" id="contact">
-        <h2 class="heading">Contact <span>Me</span></h2>
-
-        <form action="">
-            <div class="input-group">
-                <div class="input-box">
-                    <input type="text" placeholder="Full Name" name="" id="">
-                    <input type="email" placeholder="Email" name="" id="">
-                </div>
-                <div class="input-box">
-                    
-                    <input type="number" placeholder="Phone Number" name="" id="">
-                    <input type="text" placeholder="Subject" name="" id="">
-                </div>
-            </div>
-
-            <div class="input-group-2">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-                <input type="submit" value="Send Message" class="btn">
-            </div>
-        </form>
-    </section> -->
-
     <footer class="footer">
         <div class="social">
-            <a href="#"><i class='bx bxl-linkedin' ></i></a>
-            <a href="#"><i class='bx bxl-github' ></i></a>
-            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="https://www.linkedin.com/in/ihsan-ghozi-zulfikar/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+            <a href="https://github.com/ihsanGhoziZulfikar" target="_blank"><i class='bx bxl-github' ></i></a>
+            <a href="https://www.instagram.com/ihsanghozizulfikar/" target="_blank"><i class='bx bxl-instagram'></i></a>
             <a href="#"><i class='bx bx-ghost' ></i></a>
         </div>
         <ul class="list">
             <li>
-                <a href="#">FAQ</a>
+                <a href="#">Home</a>
             </li>
             <li>
-                <a href="#">certifications</a>
+                <a href="#experiences">Experience</a>
             </li>
             <li>
-                <a href="#">About Me</a>
+                <a href="#certification">Certification</a>
             </li>
             <li>
-                <a href="#">Contact</a>
-            </li>
-            <li>
-                <a href="#">Projects</a>
+                <a href="#project">Projects</a>
             </li>
         </ul>
         <p class="copyright">
@@ -138,26 +104,20 @@
         </p>
     </footer>
 
-    <!-- Modal container -->
-<!-- Modal -->
-<div id="imgModal" class="modal">
-  <div class="modal-content">
-    <span id="closeModal">&times;</span>
+    <!-- Modal -->
+    <div id="imgModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal">&times;</span>
 
-    <!-- Carousel -->
-    <div class="carousel">
-      <button class="prev">&#10094;</button>
-      <img id="carouselImage" src="" alt="Certificate">
-      <button class="next">&#10095;</button>
+            <!-- Carousel -->
+            <div class="carousel">
+            <button class="prev">&#10094;</button>
+            <img id="carouselImage" src="" alt="Certificate">
+            <button class="next">&#10095;</button>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-    <!-- Sanity client -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@sanity/client@6.21.3/dist/sanityClient.browser.js"></script> -->
-
-    <!-- Sanity image-url builder -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@sanity/image-url@1.0.2/dist/sanityImageUrl.umd.js"></script> -->
     <script src="scripts.js"></script>
     <script type="module" src="js/main.js"></script>
 </body>

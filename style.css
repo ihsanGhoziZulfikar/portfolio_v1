@@ -7,6 +7,7 @@
     outline: none;
     scroll-behavior: smooth;
     font-family: "Poppins", sans-serif;
+    /* border: 1px solid red; */
 }
 :root {
     --bg-color: #080808;
@@ -49,6 +50,18 @@ body {
 .logo span {
     text-shadow: 0 0 25px var(--main-color);
 }
+
+/* Default navbar (desktop) */
+.navbar {
+  display: flex;
+}
+
+/* show when JS adds .active */
+.navbar.active {
+  display: block;
+}
+
+/* Navbar links */
 .navbar a {
     font-size: 1.8rem;
     color: var(--text-color);
@@ -62,8 +75,11 @@ body {
     color: var(--main-color);
     border-bottom: 3px solid var(--main-color);
 }
+
+/* Burger icon (hidden by default) */
 #menu-icon {
     font-size: 3.6rem;
+    cursor: pointer;
     color: var(--main-color);
     display: none;
 }
@@ -613,42 +629,6 @@ span {
   color: black;
 }
 
-
-.contact {
-    background-color: var(--bg-color);
-}
-.contact h2 {
-    margin-bottom: 3rem;
-    color: white;
-}
-.contact form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    margin: 5rem auto;
-    text-align: center;
-}
-.contact form .input-box {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.contact form .input-box input,
-.contact form textarea {
-    width: 100%;
-    padding: 2.5rem;
-    font-size: 1.8rem;
-    color: var(--text-color);
-    background: var(--second-bg-color);
-    border-radius: 2rem;
-    border: 2px solid var(--main-color);
-    margin: 1.5rem 0;
-    resize: none;
-}
-.contact form .btn {
-    margin-top: 2rem;
-}
 .footer {
     position: relative;
     bottom: 0;

@@ -1,6 +1,6 @@
 import client from "../sanityClient.js";
 
-export async function loadCertifications() {
+export async function renderCertifications() {
   const data = await client.fetch(`
     *[_type == "certification"] | order(startDate desc){
       title,
@@ -11,14 +11,7 @@ export async function loadCertifications() {
     }
   `);
 
-  const wrapper = document.querySelector(".certifications");
-
-  wrapper.innerHTML = `
-    <h2 class="heading">Certifications</h2>
-    <div class="certification-items"></div>
-  `;
-
-  const container = wrapper.querySelector(".certification-items");
+  const container = document.querySelector(".certification-items");
 
   data.forEach(cert => {
     const start = new Date(cert.startDate).toLocaleString("en-US", { month: "short", year: "numeric" });

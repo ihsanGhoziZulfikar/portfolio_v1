@@ -13,7 +13,9 @@ window.onscroll = () => {
         if (top >= offset && top < offset + height) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                document.querySelector(`header nav a[href*="${id}"]`).classList.add('active');
+                document
+                    .querySelector(`header nav a[href*="${id}"]`)
+                    .classList.add('active');
             });
         }
     });
@@ -24,6 +26,14 @@ menuIcon.onclick = () => {
     navbar.classList.toggle('active');
 };
 
+navLinks.forEach(link => {
+    link.onclick = () => {
+        menuIcon.classList.remove('bx-x');
+        navbar.classList.remove('active');
+    };
+});
+
+// photo
 // Define the four colors to cycle through
 const colors = ['#88ff00', '#ff00ff', '#00ffee', '#ff8800']; 
 let colorIndex = 0; // Start at the first color
@@ -38,35 +48,6 @@ document.getElementById("themeToggle").addEventListener("click", function () {
     colorIndex = (colorIndex + 1) % colors.length;
 });
 
-
-// document.querySelector('.home-img img').addEventListener('click', () => {
-//     const homeImg = document.querySelector('.home-img');
-//     const existingOrbiters = document.querySelectorAll('.orbiter');
-
-//     // If there are more than 10 orbiters, reset to 1
-//     if (existingOrbiters.length >= 15) {
-//         existingOrbiters.forEach(orbiter => orbiter.remove());
-//         return;
-//     }
-//     // Create a new orbiting item
-//     const newOrbiter = document.createElement('div');
-//     newOrbiter.classList.add('orbiter');
-
-//     // Generate random values for the orbital path
-//     const randomX = Math.random() * 40 - 20;
-//     const randomY = Math.random() * 40 - 20
-//     ;
-//     const randomDirection = Math.random() > 0.5 ? 'normal' : 'reverse'; // Random direction
-
-//     // Apply the random values dynamically
-//     newOrbiter.style.setProperty('--random-x', `${randomX}vw`);
-//     newOrbiter.style.setProperty('--random-y', `${randomY}vw`);
-//     newOrbiter.style.animationDirection = randomDirection;
-
-//     // Append the new orbiter to the home image container
-//     homeImg.appendChild(newOrbiter);
-    
-// });
 
 document.querySelector('.home-img img').addEventListener('click', () => {
     const homeImg = document.querySelector('.home-img');
