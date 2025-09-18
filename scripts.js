@@ -131,21 +131,3 @@ nextBtn.onclick = () => {
 
 closeBtn.onclick = () => { modal.style.display = "none"; };
 window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
-
-// certification
-document.querySelectorAll('.certification-box').forEach(box => {
-  box.addEventListener('click', () => {
-    const item = box.parentElement; // .certification-item
-    const preview = item.querySelector('.certification-preview');
-
-    if (preview.innerHTML) {
-      // toggle off
-      preview.innerHTML = "";
-      preview.style.display = "none";
-    } else {
-      // show image
-      preview.innerHTML = `<img src="${box.dataset.img}" alt="Certificate">`;
-      preview.style.display = "block";
-    }
-  });
-});
