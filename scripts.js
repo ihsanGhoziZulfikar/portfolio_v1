@@ -86,48 +86,68 @@ document.querySelector('.home-img img').addEventListener('click', () => {
     homeImg.appendChild(newOrbiter);
 });
 
-
 // experience
 const modal = document.getElementById("imgModal");
 const closeBtn = document.getElementById("closeModal");
 const carouselImage = document.getElementById("carouselImage");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
+const counter = document.getElementById("imageCounter");
+const timeline = document.querySelector(".timeline-items"); // parent container
 
 let currentIndex = 0;
 let images = [];
+let userHasInteracted = false;
 
-document.addEventListener("click", (e) => {
-    const item = e.target.closest(".timeline-content");
-    if (item) {
-        try {
-            images = JSON.parse(item.getAttribute("data-images")) || [];
-        } catch {
-            images = [];
-        }
-        console.log(images)
+function updateImage() {
+  carouselImage.src = images[currentIndex];
+  counter.textContent = `${currentIndex + 1} / ${images.length}`;
+}
 
-        if (images.length > 0) {
-            currentIndex = 0;
-            carouselImage.src = images[currentIndex];
-            modal.style.display = "block";
-        }
-    }
+// Mark interaction only after first real click
+window.addEventListener("click", () => {
+  userHasInteracted = true;
+}, { once: true });
+
+// ✅ Event delegation: only open modal when .timeline-content is clicked
+timeline.addEventListener("click", (e) => {
+  const item = e.target.closest(".timeline-content");
+  console.log("Timeline clicked:", item); // 🕵️ log what triggered
+
+  if (!item) return;
+
+  try {
+    images = JSON.parse(item.getAttribute("data-images")) || [];
+  } catch {
+    images = [];
+  }
+
+  if (images.length > 0) {
+    currentIndex = 0;
+    updateImage();
+    modal.style.display = "flex"; 
+  }
 });
 
+
 prevBtn.onclick = () => {
-    if (images.length > 0) {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        carouselImage.src = images[currentIndex];
-    }
+  if (images.length > 0) {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImage();
+  }
 };
 
 nextBtn.onclick = () => {
-    if (images.length > 0) {
-        currentIndex = (currentIndex + 1) % images.length;
-        carouselImage.src = images[currentIndex];
-    }
+  if (images.length > 0) {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImage();
+  }
 };
 
-closeBtn.onclick = () => { modal.style.display = "none"; };
-window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+closeBtn.onclick = () => {
+  modal.style.display = "none";
+};
+
+window.onclick = (e) => {
+  if (e.target === modal) modal.style.display = "none";
+};
