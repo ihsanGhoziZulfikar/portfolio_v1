@@ -4,6 +4,7 @@ export async function getEducation() {
   const query = `*[_type == "education"] | order(startDate desc){
     degree,
     institution,
+    major,
     startDate,
     endDate,
     gpa,
@@ -29,6 +30,7 @@ export async function renderEducation() {
           <div class="education-title">${edu.degree}, ${edu.institution}</div>
           <div class="education-date">${start} - ${end}</div>
         </div>
+        <div class="education-subtitle">${edu.major}</div>
         ${edu.gpa ? `<div class="education-score">GPA: ${edu.gpa}</div>` : ""}
         <p>${edu.description || ""}</p>
       </div>

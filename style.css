@@ -790,6 +790,9 @@ span {
 .education-title {
     font-size: 20px;
 }
+.education-subtitle {
+    font-size: 16px;
+}
 .education-date {
     font-size: 20px;
 }
@@ -1008,4 +1011,85 @@ span {
     .footer .list {
         display: none;
     }
+}
+
+
+/* Floating chat button */
+.chat-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #0078ff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.chat-popup {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 350px;
+  max-height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.chat-popup.hidden {
+  display: none;
+}
+
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.chat-input-box {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input-box input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.chat-input-box button {
+  padding: 10px;
+  background: #0078ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.chat-bubble {
+  padding: 8px 12px;
+  margin: 6px 0;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.chat-bubble.user {
+  background: #0078ff;
+  color: white;
+  align-self: flex-end;
+}
+
+.chat-bubble.bot {
+  background: #f1f1f1;
+  color: #333;
+  align-self: flex-start;
 }
