@@ -7,6 +7,7 @@ async function sendMessageToChatAPI(userMessage, onStream) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "x-client-token": "secretclienttoken"
     },
     body: JSON.stringify({
       messages: [
